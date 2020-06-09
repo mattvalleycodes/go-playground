@@ -23,5 +23,7 @@ func main() {
 		if _, err2 := io.Copy(os.Stdout, res.Body); err2 != nil {
 			fmt.Fprintf(os.Stderr, "fetch: failed to read %s, err was: %v\n", url, err2)
 		}
+		fmt.Printf("status code is: %d\n", res.StatusCode)
+		res.Body.Close()
 	}
 }
